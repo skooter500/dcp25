@@ -23,6 +23,7 @@ What you will need to install:
 - Java
 - VSCode
 - Git
+- py5
 
 
 ## Week 1 - Introduction to the Course

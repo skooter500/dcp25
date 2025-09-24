@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Python Quick Reference</title>
+    <style>
+        @page { margin: 0.5in; size: A4; }
+        body { font-family: 'Courier New', monospace; font-size: 8px; line-height: 1.1; margin: 0; padding: 0; }
+        .page { page-break-after: always; height: 10in; display: flex; flex-direction: column; }
+        .page:last-child { page-break-after: auto; }
+        .columns { display: flex; gap: 8px; flex: 1; }
+        .column { flex: 1; }
+        h1 { font-size: 14px; text-align: center; margin: 4px 0; border-bottom: 2px solid #000; }
+        h2 { font-size: 9px; margin: 6px 0 2px 0; font-weight: bold; background: #f0f0f0; padding: 1px 3px; }
+        .code { background: #f8f8f8; margin: 1px 0; padding: 1px 2px; border-left: 2px solid #ccc; }
+        .compact { margin: 0; padding: 0; }
+        .comment { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <h1>Python Quick Reference Guide</h1>
+    <div class="columns">
+        <div class="column">
+            <h2>Basic Syntax</h2>
+            <div class="code">
+# Comments<br>
+x = 5; name = "Alice"; is_valid = True<br>
+a, b, c = 1, 2, 3  <span class="comment"># Multiple assignment</span><br>
+x = y = z = 0
+            </div>
+
+            <h2>Data Types</h2>
+            <div class="code">
+int_num = 42; float_num = 3.14<br>
+text = "Hello"; f_string = f"Hi {name}"<br>
+is_true = True; empty = None
+            </div>
+
+            <h2>String Methods</h2>
+            <div class="code">
+s = "Hello World"<br>
+s.upper(), s.lower(), s.strip()<br>
+s.replace("o", "0"), s.split()<br>
+s.startswith("He"), s.endswith("ld")<br>
+len(s), s[0], s[-1], s[1:4]
+            </div>
+
+            <h2>Lists</h2>
+            <div class="code">
+lst = [1, 2, 3]; mixed = [1, "hi", 3.14]<br>
+lst.append(4), lst.insert(0, 0)<br>
+lst.remove(2), lst.pop(), lst.extend([5,6])<br>
+lst.sort(), lst.reverse()<br>
+first = lst[0], last = lst[-1]<br>
+slice = lst[1:3], length = len(lst)
+            </div>
+
+            <h2>List Comprehensions</h2>
+            <div class="code">
+squares = [x**2 for x in range(10)]<br>
+evens = [x for x in range(20) if x%2==0]<br>
+matrix = [[i*j for j in range(3)] for i in range(3)]
+            </div>
+
+            <h2>Dictionaries</h2>
+            <div class="code">
+person = {"name": "Alice", "age": 25}<br>
+person["email"] = "alice@email.com"<br>
+age = person["age"]<br>
+age = person.get("age", 0)  <span class="comment"># Safe access</span><br>
+del person["age"]<br>
+keys = person.keys(), values = person.values()<br>
+items = person.items()
+            </div>
+
+            <h2>Tuples & Sets</h2>
+            <div class="code">
+coords = (10, 20); x, y = coords<br>
+unique = {1, 2, 3, 3}  <span class="comment"># {1, 2, 3}</span><br>
+unique.add(4), unique.remove(1)
+            </div>
+
+            <h2>Control Flow</h2>
+            <div class="code">
+if x > 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("positive")<br>
+elif x < 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("negative")<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("zero")<br><br>
+result = "pos" if x > 0 else "not pos"
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Loops</h2>
+            <div class="code">
+for i in range(5):  <span class="comment"># 0 to 4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br><br>
+for i in range(2, 10, 2):  <span class="comment"># 2,4,6,8</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br><br>
+for item in [1, 2, 3]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(item)<br><br>
+for k, v in person.items():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"{k}: {v}")<br><br>
+count = 0<br>
+while count < 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;count += 1<br><br>
+for i in range(10):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if i == 3: continue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if i == 7: break
+            </div>
+
+            <h2>Functions</h2>
+            <div class="code">
+def greet(name, greeting="Hello"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return f"{greeting}, {name}!"<br><br>
+def add(a, b):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return a + b<br><br>
+def sum_all(*args):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return sum(args)<br><br>
+def create_person(**kwargs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return kwargs<br><br>
+square = lambda x: x**2<br>
+add = lambda x, y: x + y
+            </div>
+
+            <h2>File I/O</h2>
+            <div class="code">
+with open("file.txt", "r") as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content = f.read()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lines = f.readlines()<br><br>
+with open("file.txt", "w") as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;f.write("Hello World")<br><br>
+with open("file.txt", "a") as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;f.write("Appended")
+            </div>
+
+            <h2>Error Handling</h2>
+            <div class="code">
+try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result = 10 / 0<br>
+except ZeroDivisionError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Cannot divide by zero")<br>
+except Exception as e:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Error: {e}")<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("No errors")<br>
+finally:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Always runs")<br><br>
+raise ValueError("Custom error")
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Classes</h2>
+            <div class="code">
+class Person:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name, age):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.age = age<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def greet(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"Hi, I'm {self.name}"<br><br>
+person = Person("Alice", 25)<br><br>
+class Student(Person):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name, age, id):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(name, age)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.student_id = id
+            </div>
+
+            <h2>Built-in Functions</h2>
+            <div class="code">
+abs(-5), min(1,2,3), max(1,2,3)<br>
+round(3.7), pow(2,3), len([1,2,3])<br>
+sum([1,2,3]), sorted([3,1,2])<br>
+int("123"), float("3.14"), str(123)<br>
+list("abc"), tuple([1,2,3])<br>
+enumerate(['a','b']), zip([1,2],['a','b'])<br>
+all([True,False]), any([True,False])
+            </div>
+
+            <h2>Imports</h2>
+            <div class="code">
+import math<br>
+from math import sqrt, pi<br>
+import numpy as np<br>
+from datetime import datetime<br><br>
+if __name__ == "__main__":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()
+            </div>
+
+            <h2>String Formatting</h2>
+            <div class="code">
+name, age = "Alice", 25<br>
+f"I'm {name}, age {age}"<br>
+"I'm {}, age {}".format(name, age)<br>
+"I'm {name}, age {age}".format(**locals())<br>
+"{:.2f}".format(3.14159)  <span class="comment"># 3.14</span>
+            </div>
+
+            <h2>Useful Patterns</h2>
+            <div class="code">
+a, b = b, a  <span class="comment"># Swap</span><br>
+if x in [1, 2, 3]: pass<br>
+if 0 <= x <= 100: pass<br>
+name = user_input or "Anonymous"<br>
+" ".join(["Hello", "World"])<br>
+count = counts.get(key, 0) + 1
+            </div>
+
+            <h2>Comprehensions</h2>
+            <div class="code">
+<span class="comment"># Dict comprehension</span><br>
+{k:v for k,v in items if condition}<br>
+<span class="comment"># Set comprehension</span><br>
+{x**2 for x in range(10)}<br>
+<span class="comment"># Generator</span><br>
+(x**2 for x in range(10))
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <div class="columns">
+        <div class="column">
+            <h2>Advanced List Operations</h2>
+            <div class="code">
+<span class="comment"># Slicing</span><br>
+lst[start:end:step]<br>
+lst[::-1]  <span class="comment"># Reverse</span><br>
+lst[::2]   <span class="comment"># Every 2nd</span><br><br>
+<span class="comment"># List methods</span><br>
+lst.index(value), lst.count(value)<br>
+lst.clear(), lst.copy()<br><br>
+<span class="comment"># Nested list flattening</span><br>
+flat = [item for sub in nested for item in sub]
+            </div>
+
+            <h2>Dictionary Operations</h2>
+            <div class="code">
+<span class="comment"># Dictionary methods</span><br>
+d.update(other_dict)<br>
+d.pop(key, default)<br>
+d.popitem()  <span class="comment"># Remove last item</span><br>
+d.setdefault(key, default)<br><br>
+<span class="comment"># Merge dictionaries (Python 3.9+)</span><br>
+merged = dict1 | dict2<br><br>
+<span class="comment"># Dictionary from keys</span><br>
+dict.fromkeys(['a','b','c'], 0)
+            </div>
+
+            <h2>Set Operations</h2>
+            <div class="code">
+s1, s2 = {1,2,3}, {3,4,5}<br>
+s1.union(s2), s1 | s2<br>
+s1.intersection(s2), s1 & s2<br>
+s1.difference(s2), s1 - s2<br>
+s1.symmetric_difference(s2), s1 ^ s2<br>
+s1.issubset(s2), s1.issuperset(s2)<br>
+s1.isdisjoint(s2)
+            </div>
+
+            <h2>Regular Expressions</h2>
+            <div class="code">
+import re<br>
+re.search(r'pattern', text)<br>
+re.match(r'pattern', text)<br>
+re.findall(r'pattern', text)<br>
+re.sub(r'pattern', 'replacement', text)<br>
+re.split(r'pattern', text)<br><br>
+<span class="comment"># Common patterns</span><br>
+r'\d+'     <span class="comment"># Digits</span><br>
+r'\w+'     <span class="comment"># Word chars</span><br>
+r'\s+'     <span class="comment"># Whitespace</span><br>
+r'[a-zA-Z]' <span class="comment"># Letters</span>
+            </div>
+
+            <h2>Datetime</h2>
+            <div class="code">
+from datetime import datetime, date, timedelta<br>
+now = datetime.now()<br>
+today = date.today()<br>
+tomorrow = today + timedelta(days=1)<br>
+now.strftime("%Y-%m-%d %H:%M:%S")<br>
+datetime.strptime("2023-01-01", "%Y-%m-%d")<br><br>
+<span class="comment"># Common format codes</span><br>
+%Y year, %m month, %d day<br>
+%H hour, %M minute, %S second
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Math Module</h2>
+            <div class="code">
+import math<br>
+math.sqrt(16), math.pow(2, 3)<br>
+math.ceil(3.1), math.floor(3.9)<br>
+math.sin(math.pi), math.cos(0)<br>
+math.log(10), math.log10(100)<br>
+math.factorial(5)<br>
+math.gcd(12, 18)<br>
+math.pi, math.e
+            </div>
+
+            <h2>Random Module</h2>
+            <div class="code">
+import random<br>
+random.random()  <span class="comment"># 0.0 to 1.0</span><br>
+random.randint(1, 10)<br>
+random.choice(['a', 'b', 'c'])<br>
+random.sample([1,2,3,4], 2)<br>
+random.shuffle(my_list)<br>
+random.seed(42)  <span class="comment"># Reproducible</span>
+            </div>
+
+            <h2>OS Module</h2>
+            <div class="code">
+import os<br>
+os.getcwd(), os.chdir('/path')<br>
+os.listdir('.'), os.mkdir('folder')<br>
+os.path.exists('file'), os.path.isfile('f')<br>
+os.path.isdir('d'), os.path.join('a', 'b')<br>
+os.path.basename('/a/b/c.txt')  <span class="comment"># c.txt</span><br>
+os.path.dirname('/a/b/c.txt')   <span class="comment"># /a/b</span><br>
+os.environ['HOME']
+            </div>
+
+            <h2>JSON Module</h2>
+            <div class="code">
+import json<br>
+data = {"name": "Alice", "age": 25}<br>
+json_str = json.dumps(data)<br>
+parsed = json.loads(json_str)<br><br>
+<span class="comment"># File operations</span><br>
+with open('data.json', 'w') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;json.dump(data, f)<br>
+with open('data.json', 'r') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data = json.load(f)
+            </div>
+
+            <h2>Itertools</h2>
+            <div class="code">
+from itertools import *<br>
+count(10, 2)      <span class="comment"># 10,12,14...</span><br>
+cycle(['A','B'])  <span class="comment"># A,B,A,B...</span><br>
+repeat('hi', 3)   <span class="comment"># hi,hi,hi</span><br>
+combinations([1,2,3], 2)<br>
+permutations([1,2,3], 2)<br>
+product([1,2], ['A','B'])<br>
+chain([1,2], [3,4])  <span class="comment"># 1,2,3,4</span>
+            </div>
+
+            <h2>Collections</h2>
+            <div class="code">
+from collections import *<br>
+Counter(['a','b','a','c'])  <span class="comment"># {'a':2,'b':1,'c':1}</span><br>
+defaultdict(int)  <span class="comment"># Default value 0</span><br>
+deque([1,2,3])   <span class="comment"># Double-ended queue</span><br>
+OrderedDict()    <span class="comment"># Ordered dictionary</span><br>
+namedtuple('Point', ['x', 'y'])
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Functional Programming</h2>
+            <div class="code">
+<span class="comment"># Map, filter, reduce</span><br>
+list(map(lambda x: x**2, [1,2,3]))<br>
+list(filter(lambda x: x%2==0, [1,2,3,4]))<br>
+from functools import reduce<br>
+reduce(lambda x,y: x+y, [1,2,3,4])<br><br>
+<span class="comment"># Decorators</span><br>
+def my_decorator(func):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def wrapper(*args, **kwargs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Before")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = func(*args, **kwargs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("After")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return result<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return wrapper<br><br>
+@my_decorator<br>
+def greet(): print("Hello")
+            </div>
+
+            <h2>Context Managers</h2>
+            <div class="code">
+<span class="comment"># Custom context manager</span><br>
+from contextlib import contextmanager<br>
+@contextmanager<br>
+def my_context():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Enter")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield "resource"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;finally:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Exit")<br><br>
+with my_context() as resource:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Using {resource}")
+            </div>
+
+            <h2>Generators</h2>
+            <div class="code">
+def fibonacci():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a, b = 0, 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while True:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a, b = b, a + b<br><br>
+fib = fibonacci()<br>
+next(fib), next(fib), next(fib)<br><br>
+<span class="comment"># Generator expression</span><br>
+squares = (x**2 for x in range(10))
+            </div>
+
+            <h2>Property Decorators</h2>
+            <div class="code">
+class Circle:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, radius):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._radius = radius<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def radius(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self._radius<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@radius.setter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def radius(self, value):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if value < 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise ValueError("Negative radius")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._radius = value
+            </div>
+
+            <h2>Magic Methods</h2>
+            <div class="code">
+class Point:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, x, y):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x, self.y = x, y<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __str__(self): return f"({self.x},{self.y})"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __repr__(self): return f"Point({self.x},{self.y})"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __add__(self, other):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return Point(self.x+other.x, self.y+other.y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __eq__(self, other):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.x==other.x and self.y==other.y
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <div class="columns">
+        <div class="column">
+            <h2>Type Hints (Python 3.5+)</h2>
+            <div class="code">
+from typing import List, Dict, Optional, Union<br><br>
+def greet(name: str) -> str:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return f"Hello, {name}"<br><br>
+def process(items: List[int]) -> Dict[str, int]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {"count": len(items)}<br><br>
+def find(lst: List[str], item: str) -> Optional[int]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return lst.index(item)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None<br><br>
+age: int = 25<br>
+name: Optional[str] = None<br>
+data: Union[str, int] = "hello"
+            </div>
+
+            <h2>Pathlib (Python 3.4+)</h2>
+            <div class="code">
+from pathlib import Path<br><br>
+p = Path("folder/file.txt")<br>
+p.exists(), p.is_file(), p.is_dir()<br>
+p.name, p.suffix, p.stem<br>
+p.parent, p.parents<br>
+p.absolute(), p.resolve()<br><br>
+<span class="comment"># Create directories</span><br>
+Path("new/dir").mkdir(parents=True, exist_ok=True)<br><br>
+<span class="comment"># Read/write files</span><br>
+p.read_text(), p.write_text("content")<br>
+p.read_bytes(), p.write_bytes(b"data")
+            </div>
+
+            <h2>F-strings Advanced</h2>
+            <div class="code">
+name, score = "Alice", 95.567<br><br>
+f"{name:>10}"      <span class="comment"># Right align</span><br>
+f"{name:<10}"      <span class="comment"># Left align</span><br>
+f"{name:^10}"      <span class="comment"># Center</span><br>
+f"{score:.2f}"     <span class="comment"># 2 decimal places</span><br>
+f"{score:08.2f}"   <span class="comment"># Zero padding</span><br>
+f"{1000:,}"        <span class="comment"># Comma separator</span><br>
+f"{0.15:.1%}"      <span class="comment"># Percentage</span><br><br>
+<span class="comment"># Debug (Python 3.8+)</span><br>
+f"{name=}"         <span class="comment"># name='Alice'</span>
+            </div>
+
+            <h2>Walrus Operator (Python 3.8+)</h2>
+            <div class="code">
+<span class="comment"># Assignment in expressions</span><br>
+if (n := len(items)) > 10:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Too many: {n}")<br><br>
+while (line := file.readline()):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;process(line)<br><br>
+<span class="comment"># In comprehensions</span><br>
+[y for x in data if (y := func(x)) > 0]
+            </div>
+
+            <h2>Data Classes (Python 3.7+)</h2>
+            <div class="code">
+from dataclasses import dataclass<br><br>
+@dataclass<br>
+class Person:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;age: int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email: str = ""<br><br>
+person = Person("Alice", 25)<br>
+print(person)  <span class="comment"># Auto __str__</span>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Enum (Python 3.4+)</h2>
+            <div class="code">
+from enum import Enum, auto<br><br>
+class Color(Enum):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RED = 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GREEN = 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BLUE = 3<br><br>
+class Status(Enum):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PENDING = auto()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PROCESSING = auto()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;COMPLETE = auto()<br><br>
+color = Color.RED<br>
+print(color.name, color.value)
+            </div>
+
+            <h2>Match Statement (Python 3.10+)</h2>
+            <div class="code">
+def handle_data(data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case int() if data > 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "positive integer"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case str() if len(data) > 10:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "long string"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case [first, *rest]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"list: {first}, {rest}"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case {"name": str(name), "age": int(age)}:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"{name} is {age}"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case _:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "unknown"
+            </div>
+
+            <h2>Async/Await (Python 3.7+)</h2>
+            <div class="code">
+import asyncio<br><br>
+async def fetch_data(url):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;await asyncio.sleep(1)  <span class="comment"># Simulate I/O</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;return f"Data from {url}"<br><br>
+async def main():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tasks = [fetch_data(f"url{i}") for i in range(3)]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;results = await asyncio.gather(*tasks)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return results<br><br>
+<span class="comment"># Run async function</span><br>
+asyncio.run(main())
+            </div>
+
+            <h2>Testing with unittest</h2>
+            <div class="code">
+import unittest<br><br>
+class TestMath(unittest.TestCase):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def test_addition(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual(2 + 2, 4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertNotEqual(2 + 2, 5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def test_division(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with self.assertRaises(ZeroDivisionError):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 / 0<br><br>
+if __name__ == "__main__":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unittest.main()
+            </div>
+
+            <h2>Logging</h2>
+            <div class="code">
+import logging<br><br>
+logging.basicConfig(level=logging.INFO,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;format='%(asctime)s - %(levelname)s - %(message)s')<br><br>
+logger = logging.getLogger(__name__)<br>
+logger.debug("Debug message")<br>
+logger.info("Info message")<br>
+logger.warning("Warning message")<br>
+logger.error("Error message")<br>
+logger.critical("Critical message")
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Performance & Profiling</h2>
+            <div class="code">
+import time<br>
+import cProfile<br>
+from timeit import timeit<br><br>
+<span class="comment"># Timing code</span><br>
+start = time.time()<br>
+# ... code ...<br>
+elapsed = time.time() - start<br><br>
+<span class="comment"># Timeit for small snippets</span><br>
+timeit('sum([1,2,3,4,5])', number=100000)<br><br>
+<span class="comment"># Profiling</span><br>
+cProfile.run('expensive_function()')
+            </div>
+
+            <h2>Memory Management</h2>
+            <div class="code">
+import gc<br>
+import sys<br><br>
+<span class="comment"># Garbage collection</span><br>
+gc.collect()  <span class="comment"># Force collection</span><br>
+gc.disable(), gc.enable()<br><br>
+<span class="comment"># Memory usage</span><br>
+sys.getsizeof(object)<br>
+sys.getrefcount(object)<br><br>
+<span class="comment"># Weak references</span><br>
+import weakref<br>
+weak_ref = weakref.ref(object)
+            </div>
+
+            <h2>Virtual Environments</h2>
+            <div class="code">
+<span class="comment"># Command line</span><br>
+python -m venv myenv<br>
+source myenv/bin/activate  <span class="comment"># Linux/Mac</span><br>
+myenv\Scripts\activate     <span class="comment"># Windows</span><br>
+deactivate<br><br>
+pip install package<br>
+pip install -r requirements.txt<br>
+pip freeze > requirements.txt<br>
+pip list, pip show package
+            </div>
+
+            <h2>Debugging</h2>
+            <div class="code">
+import pdb<br><br>
+<span class="comment"># Set breakpoint</span><br>
+pdb.set_trace()<br>
+<span class="comment"># Python 3.7+</span><br>
+breakpoint()<br><br>
+<span class="comment"># PDB commands</span><br>
+<span class="comment"># n - next line</span><br>
+<span class="comment"># s - step into</span><br>
+<span class="comment"># c - continue</span><br>
+<span class="comment"># l - list source</span><br>
+<span class="comment"># p var - print variable</span><br>
+<span class="comment"># q - quit</span>
+            </div>
+
+            <h2>Common Gotchas</h2>
+            <div class="code">
+<span class="comment"># Mutable default arguments</span><br>
+def func(lst=[]):  <span class="comment"># DON'T</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;lst.append(1)<br><br>
+def func(lst=None):  <span class="comment"># DO</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;if lst is None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lst = []<br><br>
+<span class="comment"># Late binding closures</span><br>
+funcs = [lambda: i for i in range(3)]  <span class="comment"># All return 2</span><br>
+funcs = [lambda x=i: x for i in range(3)]  <span class="comment"># Fix</span><br><br>
+<span class="comment"># Chained comparisons</span><br>
+False == False in [False]  <span class="comment"># True (not False)</span>
+            </div>
+
+            <h2>Best Practices</h2>
+            <div class="code">
+<span class="comment"># PEP 8 style guide</span><br>
+<span class="comment"># - 4 spaces for indentation</span><br>
+<span class="comment"># - snake_case for functions/variables</span><br>
+<span class="comment"># - PascalCase for classes</span><br>
+<span class="comment"># - UPPER_CASE for constants</span><br>
+<span class="comment"># - Max line length: 79 characters</span><br><br>
+<span class="comment"># Use is/is not for None</span><br>
+if value is None: pass<br><br>
+<span class="comment"># Use truthiness</span><br>
+if items: pass  <span class="comment"># instead of len(items) > 0</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+    <div class="columns">
+        <div class="column">
+            <h2>Common Algorithms</h2>
+            <div class="code">
+<span class="comment"># Binary search</span><br>
+def binary_search(arr, target):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left, right = 0, len(arr) - 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while left <= right:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid = (left + right) // 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if arr[mid] == target:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif arr[mid] < target:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = mid + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right = mid - 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return -1<br><br>
+<span class="comment"># Quick sort</span><br>
+def quicksort(arr):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if len(arr) <= 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return arr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pivot = arr[len(arr) // 2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left = [x for x in arr if x < pivot]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;middle = [x for x in arr if x == pivot]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;right = [x for x in arr if x > pivot]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return quicksort(left) + middle + quicksort(right)
+            </div>
+
+            <h2>Data Structures</h2>
+            <div class="code">
+<span class="comment"># Stack (LIFO)</span><br>
+stack = []<br>
+stack.append(item)  <span class="comment"># push</span><br>
+item = stack.pop()  <span class="comment"># pop</span><br><br>
+<span class="comment"># Queue (FIFO)</span><br>
+from collections import deque<br>
+queue = deque()<br>
+queue.append(item)      <span class="comment"># enqueue</span><br>
+item = queue.popleft()  <span class="comment"># dequeue</span><br><br>
+<span class="comment"># Priority Queue</span><br>
+import heapq<br>
+heap = []<br>
+heapq.heappush(heap, (priority, item))<br>
+priority, item = heapq.heappop(heap)
+            </div>
+
+            <h2>File Formats</h2>
+            <div class="code">
+<span class="comment"># CSV</span><br>
+import csv<br>
+with open('data.csv', 'r') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reader = csv.DictReader(f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for row in reader:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(row['column'])<br><br>
+with open('out.csv', 'w') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;writer.writerow(['a', 'b', 'c'])<br><br>
+<span class="comment"># XML</span><br>
+import xml.etree.ElementTree as ET<br>
+tree = ET.parse('data.xml')<br>
+root = tree.getroot()<br>
+for child in root:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(child.tag, child.text)
+            </div>
+
+            <h2>Web Requests</h2>
+            <div class="code">
+<span class="comment"># HTTP requests (external library)</span><br>
+import requests<br><br>
+response = requests.get('https://api.github.com')<br>
+data = response.json()<br>
+status = response.status_code<br><br>
+response = requests.post('https://api.com',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;json={'key': 'value'},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;headers={'Authorization': 'Bearer token'})<br><br>
+<span class="comment"># Built-in urllib</span><br>
+from urllib.request import urlopen<br>
+with urlopen('https://example.com') as response:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data = response.read()
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Database (SQLite)</h2>
+            <div class="code">
+import sqlite3<br><br>
+<span class="comment"># Connect and create table</span><br>
+conn = sqlite3.connect('example.db')<br>
+cursor = conn.cursor()<br><br>
+cursor.execute('''CREATE TABLE users<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(id INTEGER PRIMARY KEY,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name TEXT NOT NULL)''')<br><br>
+<span class="comment"># Insert data</span><br>
+cursor.execute("INSERT INTO users (name) VALUES (?)",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('Alice',))<br>
+conn.commit()<br><br>
+<span class="comment"># Query data</span><br>
+cursor.execute("SELECT * FROM users")<br>
+rows = cursor.fetchall()<br><br>
+conn.close()
+            </div>
+
+            <h2>Command Line Arguments</h2>
+            <div class="code">
+import sys<br>
+import argparse<br><br>
+<span class="comment"># Simple sys.argv</span><br>
+script_name = sys.argv[0]<br>
+args = sys.argv[1:]<br><br>
+<span class="comment"># Argparse</span><br>
+parser = argparse.ArgumentParser()<br>
+parser.add_argument('filename')<br>
+parser.add_argument('--verbose', '-v',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action='store_true')<br>
+parser.add_argument('--count', '-c',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type=int, default=1)<br>
+args = parser.parse_args()
+            </div>
+
+            <h2>Environment Variables</h2>
+            <div class="code">
+import os<br><br>
+<span class="comment"># Read environment variables</span><br>
+home = os.environ['HOME']<br>
+path = os.environ.get('PATH', '')<br>
+debug = os.environ.get('DEBUG', 'False').lower() == 'true'<br><br>
+<span class="comment"># Set environment variables</span><br>
+os.environ['MY_VAR'] = 'value'<br><br>
+<span class="comment"># Load from .env file (external library)</span><br>
+from dotenv import load_dotenv<br>
+load_dotenv()
+            </div>
+
+            <h2>Multiprocessing</h2>
+            <div class="code">
+from multiprocessing import Pool, Process<br><br>
+def worker(x):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return x * x<br><br>
+<span class="comment"># Process pool</span><br>
+with Pool(4) as pool:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;results = pool.map(worker, [1,2,3,4,5])<br><br>
+<span class="comment"># Individual processes</span><br>
+p = Process(target=worker, args=(5,))<br>
+p.start()<br>
+p.join()
+            </div>
+
+            <h2>Threading</h2>
+            <div class="code">
+import threading<br>
+import time<br><br>
+def worker(name):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Starting {name}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Finished {name}")<br><br>
+<span class="comment"># Create and start threads</span><br>
+threads = []<br>
+for i in range(3):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t = threading.Thread(target=worker, args=(f"Thread-{i}",))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t.start()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;threads.append(t)<br><br>
+<span class="comment"># Wait for completion</span><br>
+for t in threads:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t.join()
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Package Management</h2>
+            <div class="code">
+<span class="comment"># pip commands</span><br>
+pip install package<br>
+pip install package==1.2.3<br>
+pip install -r requirements.txt<br>
+pip install -e .  <span class="comment"># Editable install</span><br>
+pip uninstall package<br>
+pip list<br>
+pip show package<br>
+pip freeze > requirements.txt<br>
+pip search package<br><br>
+<span class="comment"># setup.py</span><br>
+from setuptools import setup<br>
+setup(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name='mypackage',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;version='0.1.0',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;packages=['mypackage'],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;install_requires=['requests']<br>
+)
+            </div>
+
+            <h2>Creating Modules</h2>
+            <div class="code">
+<span class="comment"># mymodule.py</span><br>
+def my_function():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "Hello from module"<br><br>
+MY_CONSTANT = 42<br><br>
+if __name__ == "__main__":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Module run directly")<br><br>
+<span class="comment"># __init__.py (package)</span><br>
+from .module1 import function1<br>
+from .module2 import function2<br><br>
+__all__ = ['function1', 'function2']<br>
+__version__ = '1.0.0'
+            </div>
+
+            <h2>Security</h2>
+            <div class="code">
+import hashlib<br>
+import secrets<br><br>
+<span class="comment"># Hashing</span><br>
+hash_object = hashlib.sha256(b'hello world')<br>
+hex_dig = hash_object.hexdigest()<br><br>
+<span class="comment"># Secure random</span><br>
+token = secrets.token_urlsafe(32)<br>
+password = secrets.token_hex(16)<br><br>
+<span class="comment"># Compare strings securely</span><br>
+secrets.compare_digest(a, b)
+            </div>
+
+            <h2>Common One-liners</h2>
+            <div class="code">
+<span class="comment"># Flatten list</span><br>
+[item for sublist in nested for item in sublist]<br><br>
+<span class="comment"># Remove duplicates preserving order</span><br>
+list(dict.fromkeys(items))<br><br>
+<span class="comment"># Most common element</span><br>
+max(set(items), key=items.count)<br><br>
+<span class="comment"># Transpose matrix</span><br>
+list(zip(*matrix))<br><br>
+<span class="comment"># Check if all elements are unique</span><br>
+len(items) == len(set(items))<br><br>
+<span class="comment"># Find indices of element</span><br>
+[i for i, x in enumerate(items) if x == target]
+            </div>
+
+            <h2>Performance Tips</h2>
+            <div class="code">
+<span class="comment"># Use list comprehensions</span><br>
+[x*2 for x in range(1000)]  <span class="comment"># Fast</span><br>
+# vs for loop append  <span class="comment"># Slower</span><br><br>
+<span class="comment"># Use sets for membership testing</span><br>
+if item in my_set:  <span class="comment"># O(1)</span><br>
+# vs if item in my_list  <span class="comment"># O(n)</span><br><br>
+<span class="comment"># Use enumerate instead of range(len())</span><br>
+for i, item in enumerate(items):  <span class="comment"># Good</span><br>
+# vs for i in range(len(items))  <span class="comment"># Bad</span><br><br>
+<span class="comment"># Use collections.Counter</span><br>
+from collections import Counter<br>
+counts = Counter(items)  <span class="comment"># Fast counting</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

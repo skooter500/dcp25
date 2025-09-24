@@ -31,20 +31,53 @@ What you will need to install:
 - Git
 - py5
 
+## Week 3 - Loops
+
+### Lab
+
+Draw these:
+
+![Sketch](images/p21.png)
+
+
+![Sketch](images/p19.png)
+
+
+![Sketch](images/p18.png)
+
+![Sketch](images/p20.png)
+
+
+![Sketch](images/p22.png)
+
+
+![Sketch](images/p23.png)
+
+
+![Sketch](images/p24.png)
+
+
+![Sketch](images/p27.png)
+
+
+![Sketch](images/p10.png)
+
+
+![Sketch](images/p29.png)
+
 ## Week 2 - Python Fundamentals
 
 ### Lab
 
-[Conditional operations](https://docs.google.com/document/d/1eRqL4RBA9pwyj7L8jQEhiJVpbvoIfGiP/edit?usp=sharing&ouid=113463557400115436734&rtpof=true&sd=true)
-- Task 1: Changing window colour
-- Task 2: Moving a rectangle across window
-- Task 3: A simple rollover
-- Task 4: Fading colour
-- Task 5: Moving a ball across window using Boolean variables
-- Task 6: A bouncing ball (step-by-step addition conditions)
-
+Variables exercises:
 
 [![YouTube](http://img.youtube.com/vi/kPOFqXsLLeo/0.jpg)](https://www.youtube.com/watch?v=kPOFqXsLLeo)
+
+If statement Exercises:
+
+[![YouTube](http://img.youtube.com/vi/18kMOeygmHA/0.jpg)](https://www.youtube.com/watch?v=18kMOeygmHA)
+
+- [Learn how to use bash and git](https://github.com/skooter500/csresources/blob/main/gitlab.md)
 
 - [Submit your git repos](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQjhSVU9PUExTV05UNlFNV0JHSjVQMjZFUy4u)
 
@@ -52,6 +85,9 @@ What you will need to install:
 - Check out [these Sci-Fi user interfaces made by OOP students](https://www.youtube.com/playlist?list=PL1n0B6z4e_E5RZYrubD2pcxq0qzGy-3vr)
 - Check out [these music visualisers made in Processing by previous programming students](https://www.youtube.com/watch?v=NGQbYEESZEg&list=PL1n0B6z4e_E7I2bIWWpH8NAa6kPx95sw5)
 - If you are curious, check out [some of my creature videos](https://www.youtube.com/watch?v=cW8s5i9dmqA&list=PL1n0B6z4e_E6jErrS0ScSCaVrN7KV729x)
+
+- [Python Notes](week1/python_complete_presentation.pdf)
+- [Python Quick Reference (Printable)](week1/python_quick_ref.html)
 
 Write a sketch to draw the following shape:
 

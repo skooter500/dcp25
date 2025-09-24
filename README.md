@@ -65,6 +65,51 @@ Draw these:
 
 ![Sketch](images/p29.png)
 
+### for loops:
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p31.png)
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p35.png)
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p36.png)
+
+Use a loop, ellipse, and the HSB colour space:
+
+![Sketch](images/p34.png)
+
+Use a loop, ellipse and the HSB color space to draw this:
+
+![Sketch](images/p33.png)
+
+Use a nested loop to draw this:
+
+![Sketch](images/p32.png)
+
+Try and draw this using ONE for loop. You will need the [text](https://processing.org/reference/text_.html) and [text_align](https://processing.org/reference/textAlign_.html) functions:
+
+![Sketch](images/p27.png)
+
+
+
+![Sketch](images/p23.png)
+
+
+
+![Sketch](images/p30.png)
+
+
+![Sketch](images/p10.png)
+
+
+
+![Sketch](images/p5.png)
+
 ## Week 2 - Python Fundamentals
 
 ### Lab

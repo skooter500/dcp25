@@ -85,9 +85,10 @@ for line in lines:
         if current_chr:
             lines_per_character[current_chr] = lines_per_character[current_chr] + 1
 
-for key, value in lines_per_character:
+"""for key, value in lines_per_character:
     print(f"Character: {key} lines {value}")
 
 
 
 
+"""

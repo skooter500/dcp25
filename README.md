@@ -58,6 +58,7 @@ Quick References:
 
 ## Week 10 - TkInter
 - [Notes](week4/tkinter_slides.pdf)
+- [ABC File Encoding](https://abcnotation.com/wiki/abc:standard:v2.1)
 
 ### Lab
 

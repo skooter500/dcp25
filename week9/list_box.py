@@ -6,7 +6,7 @@ root.geometry("300x300")
 tk.Label(root, text="Select items:").pack(pady=5)
 
 # Create listbox
-listbox = tk.Listbox(root, selectmode=tk.SINGLE, height=8)
+listbox = tk.Listbox(root, selectmode=tk.MULTIPLE, height=8)
 listbox.pack(padx=20, pady=10)
 
 # Add items

@@ -2,6 +2,7 @@ import tkinter as tk
 
 root = tk.Tk()
 root.geometry("400x300")
+
 value_label = tk.Label(root, text="Value: 50")
 value_label.pack(pady=20)
 

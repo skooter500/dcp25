@@ -36,6 +36,8 @@ Course Notes:
 - [Python Introduction](week1/python_complete_presentation.pdf)
 - [Python Fundamentals](week4/python_fundamentals.pdf)
 - [Pandas](pandas.pdf)
+- [SQL Databases]()
+- [TKInter](week4/tkinter_slides.pdf)
 
 Programs we developed in class:
 - [Py5 Sketch](week2/main.py)
@@ -48,10 +50,18 @@ Programs we developed in class:
 - [Parsing ABC Music Score Files](week5/lab_solution.py)
 - [Shakespere Sonnets Generator](week6/shakespere.py)
 - [Alternative Solution](lok.py)
+- [Reading SQL files]()
 
 Quick References:
 - [Python Quick Reference](week1/python_quick_ref.html)
 - [Git Quick Reference](http://github.com/skooter500/csresources/git_ref.pdf)
+
+## Week 10 - TkInter
+- [Notes](week4/tkinter_slides.pdf)
+
+### Lab
+
+Create a table (tree view) user interface to an sql database table that you connect to from Python. Create a text field where you can type in a search query and a button that you press to filter the table by the text field. Take a screenshot and submit this with code on Brightspace.
 
 ## Week 9 - OOP
 

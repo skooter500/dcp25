@@ -1,8 +1,28 @@
 import tkinter as tk
 from tkinter import ttk
 
+
+def on_click():
+    # delete all the elements
+    tree.delete(*tree.get_children())
+    for row in data:
+        if row[0].find(entry.get()) != -1 :
+            tree.insert('', tk.END, values=row)
+
 root = tk.Tk()
 root.title("Treeview Table")
+
+
+label = tk.Label(root, text="Hello, Tkinter!")
+label.grid(row=0, column=0, sticky='nsew')
+
+button = tk.Button(root, text="Click Me!", command=on_click)
+button.grid(row=0, column=2, sticky='nsew')
+
+# Text entry
+entry = tk.Entry(root, width=30)
+entry.grid(row=0, column=1, sticky='nsew')
+
 
 # Create Treeview widget
 columns = ('Name', 'Age', 'City')
@@ -28,7 +48,6 @@ for row in data:
 scrollbar = ttk.Scrollbar(root, orient=tk.VERTICAL, command=tree.yview)
 tree.configure(yscrollcommand=scrollbar.set)
 
-tree.grid(row=0, column=0, sticky='nsew')
-scrollbar.grid(row=0, column=1, sticky='ns')
-
+tree.grid(row=1, column=0, sticky='nsew')
+scrollbar.grid(row=1, column=1, sticky='ns')
 root.mainloop()

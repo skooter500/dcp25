@@ -38,6 +38,7 @@ Course Notes:
 - [Pandas](pandas.pdf)
 - [SQL Databases]()
 - [TKInter](week4/tkinter_slides.pdf)
+- [MatPlotLib](week10/matplotlib_lesson.pdf)
 
 Programs we developed in class:
 - [Py5 Sketch](week2/main.py)

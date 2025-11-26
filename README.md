@@ -57,9 +57,20 @@ Quick References:
 - [Python Quick Reference](week1/python_quick_ref.html)
 - [Git Quick Reference](http://github.com/skooter500/csresources/git_ref.pdf)
 
-## Week 10 - TkInter
+## Week 11 - Pandas & Graphing
+- [MatPlotLib](week10/matplotlib_lesson.pdf)
+- [Pandas](pandas.pdf)
+- [Notes](week11/pandas_graphs.pdf)
+
+### Lab
+Pick a dataset from Kaggle and analyse it using Pandas. Create some graphs. What have you learned about the dataset?
+
+Upload your work to Brightspace. Include image files of the graphs you create
+
+## Week 10 - TkInter & Matplotlib
 - [Notes](week4/tkinter_slides.pdf)
 - [ABC File Encoding](https://abcnotation.com/wiki/abc:standard:v2.1)
+- [MatPlotLib](week10/matplotlib_lesson.pdf)
 
 ### Lab
 

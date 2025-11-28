@@ -18,21 +18,28 @@ filt = df['tune_type'] == 'reel'
 print(len(filt))
 print(filt[0])
 
-f1 = my_list = [False] * 24482
+f1 = [False] * 24482
 f1[0] = True
 print(df[f1])  # Only reels
 print("\n" * 5)
 
 print("\n" * 5)
 pop = df[df['downloaded'] > 1000]
-sorted = pop.sort_values("title", ascending=False)
+sorted = pop.sort_values("downloaded", ascending=False)
 print(sorted[["title", "file_name"]])    # Popular tunes
+
+
+sorted[["title", "file_name"]].plot()
+
+plt.plot(sorted["downloaded"], sorted["title"])
 
 # Sort
 dsorted = df.sort_values('downloaded', ascending=True)
 print("\n" * 5)
 
 df.sort_values("title", ascending = True, inplace=True)
+
+
 
 ax = df['tune_type'].value_counts().plot.bar(figsize=(10, 6))
 
